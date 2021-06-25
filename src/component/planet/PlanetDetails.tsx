@@ -10,11 +10,11 @@ export const PlanetDetails : FC<PlanetDetailsProps> = memo(props => {
 
     return (
         <div className="card">
-            <p>{ planet.name }</p>
-            <p>{ planet.diameter }</p>
-            <p>{ planet.climate }</p>
-            <p>{ planet.gravity }</p>
-            <p>{ planet.population }</p>
+            <p>Nom : { planet.name }</p>
+            <p>Diamètre : { planet.diameter }</p>
+            <p>Climat : { planet.climate }</p>
+            <p>Gravité : { planet.gravity }</p>
+            <p>population : { planet.population }</p>
         </div>
     )
 });

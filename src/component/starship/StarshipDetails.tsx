@@ -10,11 +10,11 @@ export const StarshipDetails : FC<StarshipDetailsProps> = memo(props => {
 
     return (
         <div className="card">
-            <p>{ starship.name }</p>
-            <p>{ starship.length }</p>
-            <p>{ starship.cargo_capacity }</p>
-            <p>{ starship.cost_in_credits }</p>
-            <p>{ starship.starship_class }</p>
+            <p>Nom : { starship.name }</p>
+            <p>Taille : { starship.length }</p>
+            <p>Capacité : { starship.cargo_capacity }</p>
+            <p>Coût : { starship.cost_in_credits }</p>
+            <p>Classe : { starship.starship_class }</p>
         </div>
     )
 });

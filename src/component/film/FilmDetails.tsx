@@ -10,11 +10,11 @@ export const FilmDetails : FC<FilmDetailsProps> = memo(props => {
 
     return (
         <div className="card">
-            <p>{ film.title }</p>
-            <p>{ film.director }</p>
-            <p>{ film.producer }</p>
-            <p>{ film.episode_id }</p>
-            <p>{ film.release_date }</p>
+            <p>Titre : { film.title }</p>
+            <p>Directeur : { film.director }</p>
+            <p>producteur : { film.producer }</p>
+            <p>Episode : { film.episode_id }</p>
+            <p>date de sortie : { film.release_date }</p>
         </div>
     )
 });

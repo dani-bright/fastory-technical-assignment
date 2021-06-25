@@ -17,7 +17,7 @@ export const PeopleCard : FC<UserCardProps> = memo(props => {
             <PeopleDetails people={ people }/>
         );
     }
-
+    // there is no pictures in the data...
     return (
         <div className="card" onClick={ onCardClick }>
             <p>{ people.name }</p>

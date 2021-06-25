@@ -10,11 +10,11 @@ export const SpecieDetails : FC<SpecieDetailsProps> = memo(props => {
 
     return (
         <div className="card">
-            <p>{ specie.name }</p>
-            <p>{ specie.average_lifespan }</p>
-            <p>{ specie.classification }</p>
-            <p>{ specie.eye_colors }</p>
-            <p>{ specie.language }</p>
+            <p>Nom : { specie.name }</p>
+            <p>Espérance de vie moyenne : { specie.average_lifespan }</p>
+            <p>Classification : { specie.classification }</p>
+            <p>Couleur des yeux : { specie.eye_colors }</p>
+            <p>Langue : { specie.language }</p>
         </div>
     )
 });

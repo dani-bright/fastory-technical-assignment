@@ -1,37 +1,20 @@
-import axios from 'axios';
 import * as React from 'react';
-import { FC, ReactElement, useEffect } from 'react';
+import { FC, ReactElement } from 'react';
 import { connect } from 'react-redux';
-import { Dispatch } from 'redux';
-import { setPeoples } from '../action-creator/setPeoples';
 import { PeopleCard } from '../component/people/PeopleCard';
 import { HOCSearchable } from '../hoc/HOCSearchable';
 import { IPeople } from '../interface/IPeople';
 
 export interface IPeopleListProps {
     data : IPeople[];
-    setPeoples : (peoples : IPeople[]) => any;
 }
 
 export const PeopleList : FC<IPeopleListProps> = (props) : ReactElement => {
-    const { data, setPeoples } = props;
-    useEffect(() => {
-        (async () => {
-            const peoples = await axios.get('http://localhost:3001/people');
-            console.log(peoples)
-            setPeoples(peoples.data)
-        })()
-    }, []);
-
-    const speakWookie = async () => {
-        const peoples = await axios.get('http://localhost:3001/people?wookie=true');
-        setPeoples(peoples.data);
-    }
+    const { data } = props;
 
     return (
         <section>
-            <button onClick={ speakWookie }>wookie</button>
-            <div style={ { display : 'flex', flexWrap : 'wrap' } }>
+            <div className="list">
                 { data.map((people, index) => <PeopleCard key={ index } people={ people }/>) }
             </div>
         </section>
@@ -47,8 +30,5 @@ const mapStateToProps = (state : IStoreState) => ({
     property : 'name'
 })
 
-const mapDispatchToProps = (dispatch : Dispatch) => ({
-    setPeoples : (peoples : IPeople[]) => dispatch(setPeoples(peoples)),
-})
 
-export const SmartPeopleList = connect(mapStateToProps, mapDispatchToProps)(HOCSearchable(PeopleList));
+export const SmartPeopleList = connect(mapStateToProps)(HOCSearchable(PeopleList));

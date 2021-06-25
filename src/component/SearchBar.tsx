@@ -9,9 +9,9 @@ export interface ISearchBarProps {
 
 export const SearchBar : FC<ISearchBarProps> = (props) : ReactElement => {
     return (
-        <>
+        <div className="searchBar">
             <input { ...props } type="text"/>
             <button onClick={ props.onReset }>reset</button>
-        </>
+        </div>
     )
 };

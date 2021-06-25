@@ -10,11 +10,11 @@ export const PeopleDetails : FC<PeopleDetailsProps> = memo(props => {
 
     return (
         <div className="card">
-            <p>{ people.name }</p>
-            <p>{ people.height }</p>
-            <p>{ people.birth_year }</p>
-            <p>{ people.eye_color }</p>
-            <p>{ people.gender }</p>
+            <p>Nom : { people.name }</p>
+            <p>Taille : { people.height }</p>
+            <p>Année de naissance : { people.birth_year }</p>
+            <p>Couleur des yeux : { people.eye_color }</p>
+            <p>genre : { people.gender }</p>
         </div>
     )
 });
