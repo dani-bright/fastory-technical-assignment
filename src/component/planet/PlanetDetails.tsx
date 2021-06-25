@@ -15,6 +15,9 @@ export const PlanetDetails : FC<PlanetDetailsProps> = memo(props => {
             <p>Climat : { planet.climate }</p>
             <p>Gravité : { planet.gravity }</p>
             <p>population : { planet.population }</p>
+            <p>Période orbitale : { planet.orbital_period }</p>
+            <p>Terrain : { planet.terrain }</p>
+            <p>Surface d'eau : { planet.surface_water }</p>
         </div>
     )
 });
