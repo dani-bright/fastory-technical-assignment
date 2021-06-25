@@ -1,9 +1,6 @@
-import axios from 'axios';
 import * as React from 'react';
-import { FC, ReactElement, useEffect } from 'react';
+import { FC, ReactElement } from 'react';
 import { connect } from 'react-redux';
-import { Dispatch } from 'redux';
-import { setStarships } from '../action-creator/setStarships';
 import { StarshipCard } from '../component/starship/StarshipCard';
 import { HOCSearchable } from '../hoc/HOCSearchable';
 import { IStarship } from '../interface/IStarship';

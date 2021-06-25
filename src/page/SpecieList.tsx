@@ -1,9 +1,6 @@
-import axios from 'axios';
 import * as React from 'react';
 import { FC, ReactElement } from 'react';
 import { connect } from 'react-redux';
-import { Dispatch } from 'redux';
-import { setSpecies } from '../action-creator/setSpecies';
 import { SpecieCard } from '../component/specie/SpecieCard';
 import { HOCSearchable } from '../hoc/HOCSearchable';
 import { ISpecie } from '../interface/ISpecie';

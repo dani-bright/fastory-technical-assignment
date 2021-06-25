@@ -45,7 +45,7 @@ a {
     font-weight: bold;
 }
 
-p{
+p {
     text-transform: uppercase;
     font-weight: bold;
 }
@@ -66,6 +66,7 @@ section {
     border: 2px solid #000;
     width: 200px;
     cursor: pointer;
+    transition: all .5s ease-in;
     text-align: center;
     color: #FFE300;
     background: #000;
@@ -83,6 +84,7 @@ section {
     align-items: center;
     justify-content: center;
     flex-direction: column;
+    perspective: 3000px;
 }
 
 .inner.active {
@@ -99,7 +101,7 @@ section {
     width: 100%;
     font-size: 16px;
     font-weight: bold;
-    z-index: 1;
+    z-index: 100;
     display: flex;
     justify-content: space-between;
     padding: 15px;
@@ -113,12 +115,38 @@ section {
     display: flex;
     justify-content: center;
     min-height: 100px;
-    padding: 15px
+    padding: 15px;
+    overflow: hidden;
+    height: 260px;
+}
+
+.content::after {
+    content: '';
+    position: fixed;
+    top: 0;
+    width: 100%;
+    height: 50%;
+    background: linear-gradient(180deg, rgba(20, 20, 20, 1) 40%, rgba(20, 20, 20, 0) 100%);
 }
 
 .content .card {
     margin: 0;
     width: 95%;
+    font-size: 25px;
+    text-align: justify;
+    line-height: 35px;
+    position: relative;
+    animation: slidingUp 15s linear infinite;
+}
+
+@keyframes slidingUp {
+    0% {
+        transform: translateY(80%) translateZ(0) rotateX(64deg);
+    }
+
+    100% {
+        transform: translateY(-100%) translateZ(-1000px) rotateX(72deg);
+    }
 }
 
 .overlay {

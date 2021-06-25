@@ -12,7 +12,6 @@ import { setStarships } from './action-creator/setStarships';
 import { setVehicles } from './action-creator/setVehicles';
 import './App.css';
 import { PopupProvider } from './context/PopupContext';
-import { HOCSearchable } from './hoc/HOCSearchable';
 import { IFilm } from './interface/IFilm';
 import { IPeople } from './interface/IPeople';
 import { IPlanet } from './interface/IPlanet';
@@ -33,7 +32,6 @@ export interface IAppProps {
     setSpecies : (species : ISpecie[]) => any;
     setStarships : (starships : IStarship[]) => any;
     setVehicles : (vehicles : IVehicle[]) => any;
-
 }
 
 const App : FC<IAppProps> = (props) => {
@@ -53,7 +51,7 @@ const App : FC<IAppProps> = (props) => {
             const planets = await axios.get('http://localhost:3001/planet');
             setPlanets(planets.data)
         })()
-    }, []);
+    }, [setFilms, setVehicles, setPeoples, setSpecies, setStarships, setPlanets]);
     return (
         <HashRouter>
             <PopupProvider>
