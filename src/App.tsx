@@ -1,6 +1,6 @@
 import axios from 'axios';
 import * as  React from 'react';
-import { FC, useEffect } from 'react';
+import { FC, useEffect, useState } from 'react';
 import { connect } from 'react-redux';
 import { HashRouter, Link, Route } from 'react-router-dom';
 import { Dispatch } from 'redux';
@@ -11,6 +11,7 @@ import { setSpecies } from './action-creator/setSpecies';
 import { setStarships } from './action-creator/setStarships';
 import { setVehicles } from './action-creator/setVehicles';
 import './App.css';
+import { Loader } from './component/Loader';
 import { PopupProvider } from './context/PopupContext';
 import { IFilm } from './interface/IFilm';
 import { IPeople } from './interface/IPeople';
@@ -36,25 +37,28 @@ export interface IAppProps {
 
 const App : FC<IAppProps> = (props) => {
     const { setVehicles, setPeoples, setFilms, setPlanets, setSpecies, setStarships } = props;
+    const [showLoader, setShowLoader] = useState(true);
     useEffect(() => {
         (async () => {
+            const peoples = await axios.get('http://localhost:3001/people');
+            setPeoples(peoples.data);
             const films = await axios.get('http://localhost:3001/film');
             setFilms(films.data);
             const vehicles = await axios.get('http://localhost:3001/vehicle');
-            setVehicles(vehicles.data)
-            const peoples = await axios.get('http://localhost:3001/people');
-            setPeoples(peoples.data)
+            setVehicles(vehicles.data);
             const species = await axios.get('http://localhost:3001/specie');
-            setSpecies(species.data)
+            setSpecies(species.data);
             const starships = await axios.get('http://localhost:3001/starship');
-            setStarships(starships.data)
+            setStarships(starships.data);
             const planets = await axios.get('http://localhost:3001/planet');
-            setPlanets(planets.data)
+            setPlanets(planets.data);
+            setShowLoader(false);
         })()
     }, [setFilms, setVehicles, setPeoples, setSpecies, setStarships, setPlanets]);
     return (
         <HashRouter>
             <PopupProvider>
+                { showLoader ? <Loader/> : null }
                 <div className="menu">
                     <Link to="/">people</Link>
                     <Link to="/vehicules">vehicules</Link>
