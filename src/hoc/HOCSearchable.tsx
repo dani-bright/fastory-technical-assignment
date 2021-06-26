@@ -23,7 +23,8 @@ export const HOCSearchable = <P extends {}>(Component : FC<P & ISearchable>) => 
         const onSearchChange = (e : React.ChangeEvent<HTMLInputElement>) => {
             setQuery(e.target.value);
             setData(
-                (data) => e.target.value ? data.filter(object => object[props.property].toLowerCase().search(e.target.value.toLowerCase()) !== -1) : props.data);
+                () => e.target.value ? props.data.filter(object => object[props.property].toLowerCase().search(e.target.value.toLowerCase()) !== -1) : props.data
+            );
         }
         const onReset = () => {
             setQuery('');
